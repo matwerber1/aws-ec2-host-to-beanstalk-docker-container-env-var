@@ -2,6 +2,12 @@
 
 Assuming you are running Docker containers on an AWS Elastic Beanstalk EC2 environment, this document provides an example of how you can pass the EC2 hostname to your Docker container as a runtime environment variable. 
 
+## Contents
+
+This project contains a Dockerfile for a Docker image that injects an EC2 host's hostname as an environment variable into container at launch time. You can build the image yourself, or you use the [berbs/eb-ec2-metadata-container](https://hub.docker.com/repository/docker/berbs/eb-ec2-metadata-container) I pushed to Dockerhub. 
+
+If you're using Elastic Beanstalk to deploy your containers, you can upload the included [Dockerrun.aws.json](https://github.com/matwerber1/aws-ec2-host-to-beanstalk-docker-container-env-var/blob/master/Dockerrun.aws.json) to a sandbox Beanstalk environment which will pull and deploy the image from Dockerhub for you. 
+
 ## How it works
 
 Each Amazon EC2 instance provides a local [instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) at `http://169.254.169.254/latest/meta-data/`, and which is only reachable from within that host.
