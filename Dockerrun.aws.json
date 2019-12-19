@@ -1,0 +1,13 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Logging": "/tmp/sample-app",
+  "Image": {
+    "Name": "berbs/eb-ec2-metadata-container:latest",
+  	"Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8000"
+    }
+  ]
+}
