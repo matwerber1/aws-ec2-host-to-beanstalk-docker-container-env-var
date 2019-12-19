@@ -1,0 +1,12 @@
+#!/bin/bash
+CONNECT_REST_ADVERTISED_HOST_NAME=$(curl 169.254.169.254/latest/meta-data/hostname)
+
+if [ -z "$CONNECT_REST_ADVERTISED_HOST_NAME" ]
+then
+      CONNECT_REST_ADVERTISED_HOST_NAME="not defined"
+else
+      echo CONNECT_REST_ADVERTISED_HOST_NAME=$CONNECT_REST_ADVERTISED_HOST_NAME
+fi
+
+export CONNECT_REST_ADVERTISED_HOST_NAME
+python /tmp/application.py
